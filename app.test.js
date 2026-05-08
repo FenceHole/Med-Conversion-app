@@ -29,5 +29,13 @@ assert.strictEqual(
   convertDose("invalidCategory", "Lithium Carbonate", "Divalproex", 900),
   null
 );
+assert.strictEqual(
+  convertDose("stimulants", "Not A Medication", "Dextroamphetamine", 10),
+  null
+);
+assert.strictEqual(
+  convertDose("stimulants", "Dextroamphetamine", "Not A Medication", 10),
+  null
+);
 
 console.log("All app conversion tests passed.");
