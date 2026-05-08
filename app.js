@@ -4,7 +4,7 @@ const MEDICATIONS = {
     Dexmethylphenidate: { factor: 1.0 },
     "Amphetamine Mixed Salts": { factor: 1.0 },
     Dextroamphetamine: { factor: 1.0 },
-    Lisdexamfetamine: { factor: 0.3333 }
+    Lisdexamfetamine: { factor: 1 / 3 }
   },
   moodStabilizers: {
     "Lithium Carbonate": { factor: 900 },
