@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Med Conversion</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <h1>Med Conversion</h1>
+      <p class="tagline">Approximate dose equivalents for stimulants and mood stabilizers.</p>
+    </header>
+
+    <section class="disclaimer" role="alert">
+      <strong>Educational reference only.</strong>
+      Equivalents are approximate, derived from published guidance and consensus
+      ranges, and do not account for an individual patient's pharmacokinetics,
+      tolerance, comorbidities, or interactions. Cross-titration, serum-level
+      monitoring, and prescriber judgment are required. Not a substitute for
+      clinical decision-making.
+    </section>
+
+    <nav class="tabs" role="tablist">
+      <button id="tab-stim" class="tab active" role="tab" aria-selected="true" aria-controls="panel-stim">Stimulants</button>
+      <button id="tab-mood" class="tab" role="tab" aria-selected="false" aria-controls="panel-mood">Mood stabilizers</button>
+    </nav>
+
+    <main>
+      <section id="panel-stim" class="panel" role="tabpanel" aria-labelledby="tab-stim">
+        <p class="panel-note">
+          Conversions use methylphenidate-IR milligram equivalents as a common
+          unit. Amphetamine-class agents are approximately twice as potent per
+          mg as methylphenidate. Long-acting formulations are normalized to
+          their typical daily delivered dose.
+        </p>
+
+        <div class="grid">
+          <div class="card">
+            <label>From medication
+              <select id="stim-from"></select>
+            </label>
+            <label>Dose (mg)
+              <input id="stim-from-dose" type="number" min="0" step="0.5" inputmode="decimal" />
+            </label>
+          </div>
+
+          <div class="arrow" aria-hidden="true">&rarr;</div>
+
+          <div class="card">
+            <label>To medication
+              <select id="stim-to"></select>
+            </label>
+            <label>Equivalent dose (mg)
+              <output id="stim-result" class="result">&mdash;</output>
+            </label>
+          </div>
+        </div>
+
+        <details class="ref">
+          <summary>Reference table (mg → MPH-IR equivalent mg)</summary>
+          <table id="stim-table"></table>
+        </details>
+      </section>
+
+      <section id="panel-mood" class="panel hidden" role="tabpanel" aria-labelledby="tab-mood">
+        <p class="panel-note">
+          Mood stabilizers are <em>not</em> directly interchangeable. The values
+          below reflect common adult target daily doses for educational
+          comparison only. Actual switching requires cross-titration, level
+          monitoring (lithium, valproate, carbamazepine), and indication-
+          specific dosing (e.g., bipolar depression vs. maintenance vs.
+          mixed states).
+        </p>
+
+        <div class="grid">
+          <div class="card">
+            <label>From medication
+              <select id="mood-from"></select>
+            </label>
+            <label>Total daily dose (mg)
+              <input id="mood-from-dose" type="number" min="0" step="25" inputmode="decimal" />
+            </label>
+          </div>
+
+          <div class="arrow" aria-hidden="true">&rarr;</div>
+
+          <div class="card">
+            <label>To medication
+              <select id="mood-to"></select>
+            </label>
+            <label>Approximate target daily dose (mg)
+              <output id="mood-result" class="result">&mdash;</output>
+            </label>
+          </div>
+        </div>
+
+        <details class="ref">
+          <summary>Reference table (typical adult target daily dose)</summary>
+          <table id="mood-table"></table>
+        </details>
+      </section>
+    </main>
+
+    <footer>
+      <p>For licensed prescribers. Verify against current product labeling and clinical guidelines.</p>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
