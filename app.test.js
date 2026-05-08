@@ -10,6 +10,10 @@ assert.strictEqual(
   20
 );
 assert.strictEqual(
+  convertDose("stimulants", "Amphetamine Mixed Salts", "Amphetamine Mixed Salts", 25),
+  25
+);
+assert.strictEqual(
   convertDose("moodStabilizers", "Lamotrigine", "Lithium Carbonate", 200),
   33.3
 );
@@ -19,6 +23,10 @@ assert.strictEqual(
 );
 assert.strictEqual(
   convertDose("moodStabilizers", "Lithium Carbonate", "Divalproex", 0),
+  null
+);
+assert.strictEqual(
+  convertDose("invalidCategory", "Lithium Carbonate", "Divalproex", 900),
   null
 );
 

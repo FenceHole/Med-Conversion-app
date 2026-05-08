@@ -9,4 +9,4 @@ This repository now includes a small browser-based converter that supports:
 
 ## Run
 
-Open `/home/runner/work/Med-Conversion-app/Med-Conversion-app/index.html` in a browser.
+Open `index.html` in a browser.
