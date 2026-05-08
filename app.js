@@ -1,4 +1,4 @@
-const LISDEXAMFETAMINE_FACTOR = 1 / 3;
+const LISDEXAMFETAMINE_TO_AMPHETAMINE_EQUIVALENT_FACTOR = 1 / 3;
 
 const MEDICATIONS = {
   stimulants: {
@@ -6,7 +6,7 @@ const MEDICATIONS = {
     Dexmethylphenidate: { factor: 1.0 },
     "Amphetamine Mixed Salts": { factor: 1.0 },
     Dextroamphetamine: { factor: 1.0 },
-    Lisdexamfetamine: { factor: LISDEXAMFETAMINE_FACTOR }
+    Lisdexamfetamine: { factor: LISDEXAMFETAMINE_TO_AMPHETAMINE_EQUIVALENT_FACTOR }
   },
   moodStabilizers: {
     "Lithium Carbonate": { factor: 900 },
@@ -29,7 +29,11 @@ function convertDose(category, fromMedication, toMedication, doseMg) {
   const fromFactor = classData[fromMedication].factor;
   const toFactor = classData[toMedication].factor;
   const converted = (input * fromFactor) / toFactor;
-  return Math.round(converted * 10) / 10;
+  return roundToOneDecimal(converted);
+}
+
+function roundToOneDecimal(value) {
+  return Math.round(value * 10) / 10;
 }
 
 function populateMedicationOptions() {
