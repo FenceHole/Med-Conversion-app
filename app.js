@@ -1,10 +1,12 @@
+const LISDEXAMFETAMINE_FACTOR = 1 / 3;
+
 const MEDICATIONS = {
   stimulants: {
     "Methylphenidate IR": { factor: 0.5 },
     Dexmethylphenidate: { factor: 1.0 },
     "Amphetamine Mixed Salts": { factor: 1.0 },
     Dextroamphetamine: { factor: 1.0 },
-    Lisdexamfetamine: { factor: 0.3333333333 }
+    Lisdexamfetamine: { factor: LISDEXAMFETAMINE_FACTOR }
   },
   moodStabilizers: {
     "Lithium Carbonate": { factor: 900 },
